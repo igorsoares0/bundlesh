@@ -1,0 +1,22 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "d7d07c9c02b32e7c48e0db7040946140"
+name = "bundletest"
+handle = "bundletest-3"
+application_url = "https://c482-2804-14d-2c92-40b9-8438-812a-2045-3a06.ngrok-free.app/"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+
+[auth]
+redirect_urls = [
+  "https://c482-2804-14d-2c92-40b9-8438-812a-2045-3a06.ngrok-free.app/api/auth/callback",
+  "https://c482-2804-14d-2c92-40b9-8438-812a-2045-3a06.ngrok-free.app//api/auth/tokens"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+[pos]
+embedded = false

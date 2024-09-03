@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model active_stores {
+  shop     String   @id
+  isActive Boolean? @default(false)
+}
+
+model session {
+  id      String  @id
+  content String? //MySQL requires adding @db.Text
+  shop    String?
+}
+
+// Automatic bundle generation data
+model auto_bundle_data {
+  shop        String   @id
+  collections String[] //MySQL requires adding @db.Text
+  tags        String[]
+  minPrice    String
+  maxPrice    String
+  minProducts String
+  discount    String
+}
+
+// Discount id for the bundle
+model bundle_discount_id {
+  bundleId   String @id
+  bundleName String
+  discountId String
+  shop       String
+}
